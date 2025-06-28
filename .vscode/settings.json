@@ -1,0 +1,11 @@
+{
+    "cmake.sourceDirectory": "/home/l5cui/projects/Cleaver/src",
+    "clangd.arguments": [
+        "-background-index",
+        "-compile-commands-dir=${workspaceFolder}/build",
+        "-j=4",
+        "-log=verbose",
+        "-clang-tidy",
+        "--enable-config",
+    ],
+}

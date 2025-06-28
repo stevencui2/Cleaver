@@ -43,7 +43,7 @@ cmake_minimum_required(VERSION 3.10.2)
 set(_msg "Setting C++ standard")
 message(STATUS "${_msg}")
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 11)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -51,6 +51,7 @@ message(STATUS "${_msg} - C++${CMAKE_CXX_STANDARD}")
 
 project(CLEAVER2)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Update CMake module path
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
@@ -73,16 +74,17 @@ endif()
 
 # Build Cleaver Library
 include_directories(lib/cli11)
+# include_directories((/usr/include/c++/11))
 add_subdirectory(lib/jsoncpp)
 add_subdirectory(lib/cleaver)
 
 # TODO(jonbronson): Change to not use ITK by default once teem is added.
-option(USE_ITK "Use ITK instead of Teem for nrrd files." ON)
+option(USE_ITK "Use ITK instead of Teem for nrrd files." OFF)
 if(NOT USE_ITK)
   add_subdirectory(lib/teem)
 endif()
 
-option(BUILD_CLI "Build Cleaver CLI App (REQUIRES TEEM)" OFF)
+option(BUILD_CLI "Build Cleaver CLI App (REQUIRES TEEM)" ON)
 option(BUILD_GUI "Build Cleaver GUI App (REQUIRES TEEM)" OFF)
 
 option(BUILD_EXTRAS "Example use cases, tools" OFF)

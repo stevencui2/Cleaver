@@ -32,10 +32,10 @@ Users of the Cleaver command line tool or graphical interface may not need to bu
 
 The table below describes some of build options available when configuring Cleaver using CMake.
 
-| Option      | Description | Default |
-|-------------|-------------|---------|
-| `BUILD_CLI` | Build Cleaver Command Line Tool (CLI) application   | `OFF` |
-| `BUILD_GUI` | Build Cleaver Graphical Interface (GUI) application | `OFF` |
+| Option      | Description                                         | Default |
+| ----------- | --------------------------------------------------- | ------- |
+| `BUILD_CLI` | Build Cleaver Command Line Tool (CLI) application   | `OFF`   |
+| `BUILD_GUI` | Build Cleaver Graphical Interface (GUI) application | `OFF`   |
 
 :::{tip}
 By default, when both `BUILD_CLI` and `BUILD_GUI` are `OFF`, only the <project:manual.md#cleaver-library> is built.
@@ -51,10 +51,10 @@ By default, when both `BUILD_CLI` and `BUILD_GUI` are `OFF`, only the <project:m
 
 ### Libraries
 
-|       | Command Line Tool                 | Graphical Interface               |
-|-------|-----------------------------------|-----------------------------------|
-| ITK   | {octicon}`check;1em;sd-text-info` | {octicon}`check;1em;sd-text-info` |
-| Qt    |                                   | {octicon}`check;1em;sd-text-info` |
+|     | Command Line Tool                 | Graphical Interface               |
+| --- | --------------------------------- | --------------------------------- |
+| ITK | {octicon}`check;1em;sd-text-info` | {octicon}`check;1em;sd-text-info` |
+| Qt  |                                   | {octicon}`check;1em;sd-text-info` |
 
 
 **Qt**:
@@ -81,15 +81,14 @@ Once CMake, Qt, ITK have been installed and/or built:
 git clone https://github.com/SCIInstitute/Cleaver.git $HOME/Cleaver
 
 cmake \
-  -DITK_DIR:PATH=$HOME/ITK-build \
-  -DQt5_DIR:PATH=/Path/To/Qt5/lib/cmake/Qt5 \
+  -DITK_DIR:PATH=~/projects/ITK-build \
   -DCMAKE_BUILD_TYPE:STRING=Release \
   -DBUILD_CLI:BOOL=ON \
   -DBUILD_GUI:BOOL=ON \
-  -S $HOME/Cleaver/src \
-  -B $HOME/Cleaver-build
+  -S ~/projects/Cleaver/src \
+  -B build
 
-cmake --build $HOME/Cleaver-build --config Release --parallel 8
+cmake --build build --config Release --parallel 8
 ```
 
 ### Windows
