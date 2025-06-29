@@ -40,7 +40,7 @@ include_directories(${CLEAVER2_BINARY_DIR}/include)
 file(GLOB srcs *.cpp )
 file(GLOB hdrs *.h   )
 set(Nrrd2Cleaver_API_HEADER_FILES
-   ${CMAKE_SOURCE_DIR}/lib/nrrd2cleaver/NRRDTools.h)
+   ${CLEAVER2_SOURCE_DIR}/lib/nrrd2cleaver/NRRDTools.h)
 
 
 # copy header files over
