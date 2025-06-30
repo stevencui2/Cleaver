@@ -42,7 +42,7 @@
 find_program( GCOV_PATH gcov )
 find_program( LCOV_PATH lcov )
 find_program( GENHTML_PATH genhtml )
-find_program( GCOVR_PATH gcovr PATHS ${CMAKE_SOURCE_DIR}/tests)
+find_program( GCOVR_PATH gcovr PATHS ${CLEAVER2_SOURCE_DIR}/tests)
 
 if(NOT GCOV_PATH)
   message(FATAL_ERROR "gcov not found! Aborting...")
@@ -117,7 +117,7 @@ function(SETUP_TARGET_FOR_COVERAGE _targetname _testrunner _outputname)
     COMMAND ${GENHTML_PATH} -o ${_outputname} ${_outputname}.info.cleaned
     COMMAND ${CMAKE_COMMAND} -E remove ${_outputname}.info ${_outputname}.info.cleaned
 
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    WORKING_DIRECTORY ${CLEAVER2_BINARY_DIR}
     COMMENT "Resetting code coverage counters to zero.\nProcessing code coverage counters and generating report."
     )
 
@@ -150,8 +150,8 @@ function(SETUP_TARGET_FOR_COVERAGE_COBERTURA _targetname _testrunner _outputname
     ${_testrunner} ${ARGV3}
 
     # Running gcovr
-    COMMAND ${GCOVR_PATH} -x -r ${CMAKE_SOURCE_DIR} -e '${CMAKE_SOURCE_DIR}/tests/'  -o ${_outputname}.xml
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMAND ${GCOVR_PATH} -x -r ${CLEAVER2_SOURCE_DIR} -e '${CLEAVER2_SOURCE_DIR}/tests/'  -o ${_outputname}.xml
+    WORKING_DIRECTORY ${CLEAVER2_BINARY_DIR}
     COMMENT "Running gcovr to produce Cobertura code coverage report."
     )
 

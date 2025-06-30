@@ -60,8 +60,8 @@ include (CMakeBackwardCompatibilityC)
 
 #-----------------------------------------------------------------------------
 # Output directories.
-set (LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib CACHE INTERNAL "Single output directory for building all libraries.")
-set (EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin CACHE INTERNAL "Single output directory for building all executables.")
+set (LIBRARY_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/lib CACHE INTERNAL "Single output directory for building all libraries.")
+set (EXECUTABLE_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/bin CACHE INTERNAL "Single output directory for building all executables.")
 #output directory for installing all include files.")
 mark_as_advanced(LIBRARY_OUTPUT_PATH EXECUTABLE_OUTPUT_PATH)
 set(Teem_LIBRARY_PATH "${LIBRARY_OUTPUT_PATH}")
@@ -279,16 +279,16 @@ foreach(header_file ${Teem_HEADER_FILES})
   #message(STATUS "Copy header file: ${header_file}")
   get_filename_component(file_no_path "${header_file}" NAME)
   configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/${header_file}"
-    "${CMAKE_BINARY_DIR}/include/teem/${file_no_path}" COPYONLY IMMEDIATE)
+    "${CLEAVER2_BINARY_DIR}/include/teem/${file_no_path}" COPYONLY IMMEDIATE)
   set(Teem_INSTALLED_HEADER_FILES
     ${Teem_INSTALLED_HEADER_FILES}
-    "${CMAKE_BINARY_DIR}/include/teem/${file_no_path}")
+    "${CLEAVER2_BINARY_DIR}/include/teem/${file_no_path}")
 endforeach()
 
 #---
 # Include directory 
 include_directories(
-  "${CMAKE_BINARY_DIR}/include/"
+  "${CLEAVER2_BINARY_DIR}/include/"
   "${Teem_SOURCE_DIR}/include/"
   )
 
