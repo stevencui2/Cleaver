@@ -1,5 +1,5 @@
 # gtest external download
-set(EXTERNAL_DIR "${CMAKE_BINARY_DIR}/externals")
+set(EXTERNAL_DIR "${CLEAVER2_BINARY_DIR}/externals")
 set(GTEST_INSTALL_DIR "${EXTERNAL_DIR}/googletest")
 if(WIN32)
   set(GTEST_SHARED_ARG ON)
@@ -95,7 +95,7 @@ add_dependencies(${GMOCK_MAIN_LIBRARY} ${GTEST_LIBRARY})
 
 
 # Definitions for Tests
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CLEAVER2_BINARY_DIR}/test/bin)
 #test macro
 function(NEWTEST name)
   add_executable(${name} ${name}.cpp ${ARGN})

@@ -20,7 +20,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-include(${CMAKE_SOURCE_DIR}/CTestConfig.cmake)
+include(${CLEAVER2_SOURCE_DIR}/CTestConfig.cmake)
 set(NIGHTLY_START_TIME "${CTEST_NIGHTLY_START_TIME}")
 set(DROP_METHOD "${CTEST_DROP_METHOD}")
 set(DROP_SITE "${CTEST_DROP_SITE}")

@@ -50,10 +50,10 @@ foreach(header_file ${Nrrd2Cleaver_API_HEADER_FILES})
   #message(STATUS "Copy header file: ${header_file}")
   get_filename_component(file_no_path "${header_file}" NAME)
   configure_file("${header_file}"
-    "${CMAKE_BINARY_DIR}/include/nrrd2cleaver/${file_no_path}" COPYONLY IMMEDIATE)
+    "${CLEAVER2_BINARY_DIR}/include/nrrd2cleaver/${file_no_path}" COPYONLY IMMEDIATE)
   set(Nrrd2Cleaver_INSTALLED_HEADER_FILES
     ${Nrrd2Cleaver_INSTALLED_HEADER_FILES}
-    "${CMAKE_BINARY_DIR}/include/nrrd2cleaver/${file_no_path}")
+    "${CLEAVER2_BINARY_DIR}/include/nrrd2cleaver/${file_no_path}")
 endforeach()
 
 

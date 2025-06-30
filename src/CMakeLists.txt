@@ -59,7 +59,7 @@ include(cleaverInitializeBuildType)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin CACHE INTERNAL
+set(EXECUTABLE_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/bin CACHE INTERNAL
     "Single output directory for building all executables.")
 
 mark_as_advanced( CLEAVER2_RUNTIME_DIR CLEAVER2_BUNDLE_DIR)

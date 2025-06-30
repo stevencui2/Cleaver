@@ -35,7 +35,7 @@ project(synthetic)
 cmake_minimum_required(VERSION 3.10.2)
 
 # Add library incl1udes
-include_directories(${CMAKE_BINARY_DIR}/include)
+include_directories(${CLEAVER2_BINARY_DIR}/include)
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ./)
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ../)
 
@@ -58,10 +58,10 @@ foreach(header_file ${Synthetic_API_HEADER_FILES})
   #message(STATUS "Copy header file: ${header_file}")
   get_filename_component(file_no_path "${header_file}" NAME)
   configure_file("${header_file}"
-    "${CMAKE_BINARY_DIR}/include/Synthetic/${file_no_path}" COPYONLY IMMEDIATE)
+    "${CLEAVER2_BINARY_DIR}/include/Synthetic/${file_no_path}" COPYONLY IMMEDIATE)
   set(Synthetic_INSTALLED_HEADER_FILES
     ${Synthetic_INSTALLED_HEADER_FILES}
-    "${CMAKE_BINARY_DIR}/include/Synthetic/${file_no_path}")
+    "${CLEAVER2_BINARY_DIR}/include/Synthetic/${file_no_path}")
 endforeach()
 
 # output library

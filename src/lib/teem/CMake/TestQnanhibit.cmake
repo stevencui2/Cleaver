@@ -31,7 +31,7 @@
 macro(TEST_QNANHIBIT VARIABLE LOCAL_TEST_DIR)
   if("HAVE_${VARIABLE}" MATCHES "^HAVE_${VARIABLE}$")
     try_run(${VARIABLE} HAVE_${VARIABLE}
-      ${CMAKE_BINARY_DIR}
+      ${CLEAVER2_BINARY_DIR}
       ${LOCAL_TEST_DIR}/TestQnanhibit.c
       OUTPUT_VARIABLE OUTPUT)
     message(STATUS "Check the value of the 22nd bit of a 32-bit quiet-NaN")
@@ -40,19 +40,19 @@ macro(TEST_QNANHIBIT VARIABLE LOCAL_TEST_DIR)
         message(ERROR " A test (qnanhibit.c) necessary for NrrdIO configuration returned error code. NrrdIO may not properly handle NaN's.")
       endif()
       if(${VARIABLE})
-        file(APPEND ${CMAKE_BINARY_DIR}/CMakeError.log
+        file(APPEND ${CLEAVER2_BINARY_DIR}/CMakeError.log
                     "Value of the 22nd bit of a 32-bit quiet-NaN is 1")
         message(STATUS "Check the value of the 22nd bit of a 32-bit quiet-NaN - 1")
       else()
-        file(APPEND ${CMAKE_BINARY_DIR}/CMakeError.log
+        file(APPEND ${CLEAVER2_BINARY_DIR}/CMakeError.log
                     "Value of the 22nd bit of a 32-bit quiet-NaN is 0")
         message(STATUS "Check the value of the 22nd bit of a 32-bit quiet-NaN - 0")
       endif()
     else()
-      file(APPEND ${CMAKE_BINARY_DIR}/CMakeError.log
+      file(APPEND ${CLEAVER2_BINARY_DIR}/CMakeError.log
         "\tFailed to compile a test (TestQnanhibit.c) necessary to configure for proper handling of IEEE floating point NaN's.\n")
       message(STATUS "Failed to compile a test (TestQnanhibit.c) necessary to configure for proper handling of IEEE floating point NaN's")
     endif()
-    file(APPEND ${CMAKE_BINARY_DIR}/CMakeError.log "TestQnanhibit.c produced following output:\n${OUTPUT}\n\n")
+    file(APPEND ${CLEAVER2_BINARY_DIR}/CMakeError.log "TestQnanhibit.c produced following output:\n${OUTPUT}\n\n")
   endif()
 endmacro()

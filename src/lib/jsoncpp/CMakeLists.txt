@@ -17,10 +17,10 @@ set(JSONCPP_INSTALLED_HEADER_FILES)
 foreach(header_file ${JSONCPP_API_HEADER_FILES})
   get_filename_component(file_no_path "${header_file}" NAME)
   configure_file("${header_file}"
-    "${CMAKE_BINARY_DIR}/include/jsoncpp/${file_no_path}" COPYONLY IMMEDIATE)
+    "${CLEAVER2_BINARY_DIR}/include/jsoncpp/${file_no_path}" COPYONLY IMMEDIATE)
   set(JSONCPP_INSTALLED_HEADER_FILES
     ${JSONCPP_INSTALLED_HEADER_FILES}
-    "${CMAKE_BINARY_DIR}/include/jsoncpp/${file_no_path}")
+    "${CLEAVER2_BINARY_DIR}/include/jsoncpp/${file_no_path}")
 endforeach()
 
 # output library
