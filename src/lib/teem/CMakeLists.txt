@@ -60,8 +60,8 @@ include (CMakeBackwardCompatibilityC)
 
 #-----------------------------------------------------------------------------
 # Output directories.
-set (LIBRARY_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/lib CACHE INTERNAL "Single output directory for building all libraries.")
-set (EXECUTABLE_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/bin CACHE INTERNAL "Single output directory for building all executables.")
+# set (LIBRARY_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/lib CACHE INTERNAL "Single output directory for building all libraries.")
+# set (EXECUTABLE_OUTPUT_PATH ${CLEAVER2_BINARY_DIR}/bin CACHE INTERNAL "Single output directory for building all executables.")
 #output directory for installing all include files.")
 mark_as_advanced(LIBRARY_OUTPUT_PATH EXECUTABLE_OUTPUT_PATH)
 set(Teem_LIBRARY_PATH "${LIBRARY_OUTPUT_PATH}")
