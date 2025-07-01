@@ -46,6 +46,9 @@ ExternalProject_Add(googletest
    BINARY_DIR "${GTEST_INSTALL_DIR}/lib"
    INSTALL_COMMAND ""
    ${_ep_arg_build_byproducts}
+   CMAKE_ARGS
+    -DCMAKE_CXX_FLAGS=-Wno-error=maybe-uninitialized
+    -DCMAKE_C_FLAGS=-Wno-error=maybe-uninitialized
 )
 
 # Copy and Specify Include Directory
